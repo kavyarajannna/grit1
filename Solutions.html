@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +14,12 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: Arial, sans-serif;
-           
+
         }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -59,7 +62,7 @@
         nav a {
             color: white;
             margin: 0 15px;
-      
+
             text-decoration: none;
             font-size: 14px;
         }
@@ -79,7 +82,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-          
+
             padding: 20px;
             padding-bottom: 60px;
         }
@@ -157,20 +160,25 @@
             font-size: 14px;
             opacity: 0.8;
         }
-        @media (max-width: 768px) {
-    header {
-        padding: 10px 20px; /* Reduce padding for smaller screens */
-    }
 
-    header.scrolled {
-        padding: 5px 20px; /* Further reduce padding when scrolled */
-    }
-}
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+                /* Reduce padding for smaller screens */
+            }
+
+            header.scrolled {
+                padding: 5px 20px;
+                /* Further reduce padding when scrolled */
+            }
+        }
 
         @media (max-width: 768px) {
             header nav a {
-        color: black !important; /* Ensure black text in mobile view */
-    }
+                color: black !important;
+                /* Ensure black text in mobile view */
+            }
+
             #nav-menu {
                 position: fixed;
                 top: 0;
@@ -185,13 +193,15 @@
                 align-items: flex-start;
                 padding: 20px;
             }
+
             #nav a {
-            margin: 0 15px;
-            line-height: 5rem;
-            color: black;
-            text-decoration: none;
-            font-size: 14px;
-        }
+                margin: 0 15px;
+                line-height: 5rem;
+                color: black;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
             #nav-menu.open {
                 transform: translateX(0);
             }
@@ -218,84 +228,83 @@
             padding: 5%;
             text-align: left;
         }
-        h1 {
-            font-family: "Bower", Georgia, "Times New Roman", serif;
 
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        .description944 {
-            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
-            font-size: 1.25rem;
-
-            margin-bottom: 3%;
-            color: #555;
-            text-align: left;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-      
-        .description944.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
         .solutions944 {
             display: flex;
             gap: 20px;
             justify-content: space-between;
             flex-wrap: wrap;
+            align-items: flex-start;
+            width: 100%;
+            padding: 3% 0%;
         }
+
         .card944 {
             position: relative;
-            width: 24%;
+            width: calc(25% - 15px);
+            /* 4 cards per row */
+            max-width: none;
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
         }
+
         .card944 img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
         }
-        .card-content944 {
-            font-family: "Bower", Georgia, "Times New Roman", serif;
 
+        .card-content944 {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
+            bottom: 10%;
+            /* Better positioning */
+            left: 10%;
+            z-index: 1;
+            /* Ensures text appears above image */
+            color: #fff;
+            /* Ensures text is visible */
             font-size: 1.5rem;
             font-weight: 500;
             display: flex;
             flex-direction: column;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-            gap: 2%;
+            gap: 5px;
+            /* Better spacing */
         }
+
         .arrow944 {
             display: inline-block;
             margin-top: 5px;
             font-size: 2.5rem;
             transition: transform 0.3s ease;
         }
+
         .card944:hover .arrow944 {
             transform: translateX(8px);
         }
+
+        /* Responsive Adjustments */
         @media (max-width: 1024px) {
             .card944 {
-                width: 48%;
+                width: calc(50% - 10px);
+                /* 2 cards per row */
             }
         }
+
         @media (max-width: 768px) {
             .solutions944 {
                 flex-direction: column;
+                align-items: center;
             }
+
             .card944 {
                 width: 100%;
+                max-width: 400px;
             }
         }
+
 
 
 
@@ -304,27 +313,35 @@
             width: 100%;
             padding: 5%;
             display: flex;
-            align-items: stretch; /* Ensures both columns are equal height */
+            align-items: stretch;
+            /* Ensures both columns are equal height */
             justify-content: space-between;
             box-sizing: border-box;
         }
+
         .left47 {
             flex: 70%;
         }
+
         .left47 img {
             width: 100%;
             height: auto;
-            margin-right: 20px; /* Spacing between image and text */
+            margin-right: 20px;
+            /* Spacing between image and text */
         }
+
         .right47 {
             flex: 30%;
             text-align: left;
-            border-right: 3px solid black; /* Vertical border */
-            padding-left: 20px; /* Space from border */
+            border-right: 9px solid rgb(9, 39, 206);
+            /* Vertical border */
+            padding-left: 20px;
+            /* Space from border */
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
         .right47 h2 {
             font-family: "Bower", Georgia, "Times New Roman", serif;
             font-size: 2rem;
@@ -332,6 +349,7 @@
             margin-bottom: 10px;
             line-height: 1.2;
         }
+
         .arrow47 {
             display: inline-block;
             font-size: 2rem;
@@ -341,44 +359,63 @@
             border: none;
             outline: none;
         }
+
         @keyframes slide {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
         }
+
         @media (max-width: 768px) {
             .section47 {
                 flex-direction: column;
                 text-align: center;
             }
+
             .left47 img {
-                margin-right: 0; /* Remove margin on smaller screens */
+                margin-right: 0;
+                /* Remove margin on smaller screens */
             }
-            .left47, .right47 {
+
+            .left47,
+            .right47 {
                 flex: 100%;
             }
+
             .right47 {
                 margin-top: 20px;
-                border-left: none; /* Remove border on smaller screens */
-                padding-left: 0; /* Remove padding */
+                border-left: none;
+                /* Remove border on smaller screens */
+                padding-left: 0;
+                /* Remove padding */
             }
         }
 
 
 
-         .container60 {
+        .container60 {
             background-color: #f5f5f5;
             padding: 20px;
         }
+
         .headline60 {
             font-size: 24px;
             font-weight: bold;
             color: #333;
         }
+
         .subtext60 {
             font-size: 18px;
             color: #333;
             margin-top: 10px;
         }
+
         .button60 {
             display: inline-block;
             background-color: #4B0082;
@@ -393,6 +430,7 @@
             cursor: pointer;
             position: relative;
         }
+
         .button60:hover {
             background-color: #3a006e;
         }
@@ -415,7 +453,8 @@
         }
 
         .future-proof-section .headline60 {
-            font-size: 2vw; /* Responsive font size */
+            font-size: 2vw;
+            /* Responsive font size */
             font-weight: 500;
             color: #333;
         }
@@ -612,11 +651,11 @@
             }
         }
 
-        
+
         .container61 {
             width: 90%;
             margin: auto;
-           
+
         }
 
         .container61 h1 {
@@ -830,7 +869,7 @@
         }
 
         .location {
-           
+
             text-align: center;
             position: relative;
         }
@@ -902,6 +941,7 @@
         }
     </style>
 </head>
+
 <body>
     <header id="header">
         <div class="logo">
@@ -925,20 +965,23 @@
             <img src="solutions.png" alt="Hero Background">
         </div>
         <h1>AI-Driven XR Solutions to Elevate& Scale Your Business</h1>
-        <h3 style="color: white;text-align: left;">Unlock Innovation with AI & XR – Transforming Industries, Driving Success</h3>
+        <h3 style="color: white;text-align: left;">Unlock Innovation with AI & XR – Transforming Industries, Driving
+            Success</h3>
         <p>At Gritbyte Labs, we engineer next-gen AI-powered XR solutions that redefine industries by enhancing
             engagement, streamlining operations, and unlocking new revenue streams. From interactive 3D configurators to
             AI-driven automation and immersive digital twins, our technologies empower businesses to scale, optimize,
             and innovate like never before.</p>
-    
+
     </section>
 
-    
 
-  
+
+
     <div class="container944">
         <h1>Solutions</h1>
-        <p class="description944">Asset-based consulting helps us deliver insight and impact quicker than ever.<br>Our solutions leverage advanced technology, proprietary data, and deep expertise to help clients in new and exciting ways.</p>
+        <p class="description944">Asset-based consulting helps us deliver insight and impact quicker than ever.<br>Our
+            solutions leverage advanced technology, proprietary data, and deep expertise to help clients in new and
+            exciting ways.</p>
         <div class="solutions944">
             <div class="card944">
                 <img src="Rectangle 23.png" alt="End-to-End Solutions">
@@ -958,7 +1001,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="section47">
         <div class="left47">
             <img src="Screenshot 2025-02-17 005850.png" alt="Technical Support">
@@ -1101,7 +1144,7 @@
                 <hr>
                 <div class="location-row">
                     <div class="location">
-                        <img src="India (IN).png" alt="Location">
+                        <img src="/India (IN).png" alt="Location">
                         <p>Bangalore<br>Mysuru</p>
                         <div class="vertical-line"></div>
                     </div>
@@ -1132,14 +1175,14 @@
     </footer>
     <div class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const descriptions = document.querySelectorAll(".description944");
             descriptions.forEach(desc => {
                 desc.classList.add("visible");
             });
         });
     </script>
-     <script>
+    <script>
         function openMenu() {
             document.getElementById("mobileMenu").style.right = "0";
         }
@@ -1179,4 +1222,5 @@
         });
     </script>
 </body>
+
 </html>
