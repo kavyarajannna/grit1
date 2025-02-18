@@ -60,7 +60,7 @@
 
         nav a {
             margin: 0 15px;
-            color: black;
+            color: white;
             text-decoration: none;
             font-size: 14px;
         }
@@ -172,6 +172,9 @@
         }
 
         @media (max-width: 768px) {
+            header nav a {
+        color: black !important; /* Ensure black text in mobile view */
+    }
             #nav-menu {
                 position: fixed;
                 top: 0;
