@@ -171,6 +171,9 @@ html, body {
 }
 
         @media (max-width: 768px) {
+            header nav a {
+        color: black !important; /* Ensure black text in mobile view */
+    }
             #nav-menu {
                 position: fixed;
                 top: 0;
@@ -188,7 +191,7 @@ html, body {
             #nav a {
             margin: 0 15px;
             line-height: 5rem;
-            color: black;
+            color: black !important; /* Ensure it overrides other styles */
             text-decoration: none;
             font-size: 14px;
         }
