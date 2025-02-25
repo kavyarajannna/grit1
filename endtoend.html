@@ -236,10 +236,10 @@
             margin-top: 20px;
             text-align: left;
             font-size: 1.5rem;
-            font-weight: 500;
+            font-weight: bold;
             margin-bottom: 20px;
             color: #4A00E0;
-            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
 
             padding-left: 5%;
         }
@@ -260,15 +260,15 @@
         .card h2 {
             color: #000000;
             font-size: clamp(1.2rem, 2vw, 2rem);
-            font-weight: 100;
-            font-family: "Bower", Georgia, "Times New Roman", serif;
+            font-weight: bold;
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
             line-height: 1.4;
             margin-bottom: 10px;
         }
 
         /* a. and b. formatting with left gap */
         .card .section {
-            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
             line-height: 1.5rem;
             font-size: clamp(1rem, 1.5vw, 1.25rem);
             display: flex;
@@ -311,7 +311,7 @@
             color: #000000;
             line-height: 1.8;
             font-size: clamp(1rem, 1.5vw, 1.25rem);
-            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
             margin-bottom: 5px;
         }
 
@@ -320,7 +320,7 @@
             color: #333;
             line-height: 1.8;
             font-size: clamp(1rem, 1.5vw, 1.25rem);
-            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
             margin-bottom: 5px;
         }
 
@@ -366,8 +366,8 @@
         h2 {
             color: #4A00E0;
             font-size: clamp(1.5rem, 2vw, 2rem);
-            font-weight: 100;
-            font-family: "Bower", Georgia, "Times New Roman", serif;
+            font-weight: bold;
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
             line-height: 1.4;
             margin-bottom: 1rem;
             margin-top: 0;
@@ -383,7 +383,7 @@
             color: #333;
             line-height: 1.8;
             font-size: clamp(1rem, 1.5vw, 1.25rem);
-            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
         }
 
 
@@ -417,7 +417,7 @@
         .header-section23 h1 {
             color: #4A00E0;
             font-size: clamp(2rem, 3vw, 3.25rem);
-            font-family: "Bower", Georgia, "Times New Roman", serif;
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
             font-weight: 300;
             line-height: 1.2;
         }
@@ -771,7 +771,8 @@
             <img src="Rectangle 23.png" alt="Hero Background">
         </div>
         <h1>End–to–End Solutions</h1>
-        <p>February 7, 2025</p>
+        <p id="currentDate"></p>
+
 
     </section>
 
@@ -1340,6 +1341,13 @@
             if (!navMenu.contains(e.target) && !menuIcon.contains(e.target)) {
                 navMenu.classList.remove('open');
             }
+        });
+    </script>
+     <script>
+        document.getElementById("currentDate").textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
         });
     </script>
 </body>
