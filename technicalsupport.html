@@ -821,7 +821,7 @@
         </div>
         <h1>24/7 Technical Support
             – Maximize Uptime, Minimize Disruptions </h1>
-        <p>February 7, 2025</p>
+            <p id="currentDate"></p>
 
     </section>
 
@@ -1083,6 +1083,13 @@
             if (!navMenu.contains(e.target) && !menuIcon.contains(e.target)) {
                 navMenu.classList.remove('open');
             }
+        });
+    </script>
+      <script>
+        document.getElementById("currentDate").textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
         });
     </script>
 </body>
