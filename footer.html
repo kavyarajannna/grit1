@@ -20,7 +20,7 @@
             background-color: #f8f8f8;
         }
 
-      
+
 
         .footer {
             padding: 0 5%;
@@ -129,6 +129,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            align-items: center;
             gap: 20px;
         }
 
@@ -154,40 +155,70 @@
             flex-wrap: wrap;
         }
 
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .certified-trusted {
+                flex-wrap: nowrap; /* Keep items in one row */
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                overflow-x: auto; /* Prevent breaking layout */
+                padding: 10px;
+            }
+
+            .certified,
+            .trusted {
+                flex: 1;
+                padding-top: 10%;
+                align-items: center;
+                text-align: center;
+                min-width: 150px; /* Prevent squishing */
+            }
+
+            .trusted-images {
+                justify-content: center;
+                flex-wrap: nowrap;
+                overflow-x: auto; /* Allow scrolling if needed */
+            }
+        }
+
         .vertical-line {
-    min-height: 80px; /* Ensures the line is visible */
-    width: 2px;
-    background: #ccc;
-    display: inline-block;
-}
+            min-height: 80px;
+            /* Ensures the line is visible */
+            width: 2px;
+            background: #ccc;
+            display: inline-block;
+        }
 
-.location-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px; /* Adjust spacing */
-    padding-top: 7%;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-}
+        .location-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            /* Adjust spacing */
+            padding-top: 7%;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
 
 
-.location {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 10px;
-}
+        .location {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+        }
 
-.location img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #0000001A;
-    padding: 8px;
-    margin-bottom: 10px;
-}
+        .location img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0000001A;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
 
 
 
@@ -338,7 +369,7 @@
 </head>
 
 <body>
-   
+
     <footer class="footer">
         <hr>
         <div class="footer-container">
@@ -394,32 +425,32 @@
                         <p>Bangalore<br>Mysuru</p>
                     </div>
                     <div class="vertical-line"></div> <!-- Line between columns -->
-                
+
                     <div class="location">
                         <img src="South Korea (KR).png" alt="Location">
                         <p>Seoul</p>
                     </div>
                     <div class="vertical-line"></div>
-                
+
                     <div class="location">
                         <img src="United Kingdom (GB).png" alt="Location">
                         <p>London</p>
                     </div>
                     <div class="vertical-line"></div>
-                
+
                     <div class="location">
                         <img src="Canada (CA).png" alt="Location">
                         <p>Toronto</p>
                     </div>
                     <div class="vertical-line"></div>
-                
+
                     <div class="location">
                         <img src="United Arab Emirates (AE).png" alt="Location">
                         <p>Downtown <br>Dubai</p>
                     </div>
                 </div>
-                
-                
+
+
 
             </div>
         </div>
@@ -428,7 +459,7 @@
     <div class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</div>
 
 
-   
+
 </body>
 
 </html>
