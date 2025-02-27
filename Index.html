@@ -4,27 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Footer</title>
+    <title>Index</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+
+
+        body {
+            background-color: #f8f8f8;
+        }
 
         header {
-
-            width: 100%;
-    max-width: 100%;
-    overflow: hidden;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,16 +52,22 @@ html, body {
             color: black;
         }
 
-        header.scrolled .menu-icon {
-            color: black;
-        }
-
         .menu-icon {
             display: none;
             font-size: 30px;
             cursor: pointer;
             color: white;
+            /* Default color before scrolling */
+            transition: color 0.3s ease;
+            /* Smooth transition */
         }
+
+        header.scrolled .menu-icon {
+            color: black;
+            /* Change to black when scrolled */
+        }
+
+
 
         nav {
             display: flex;
@@ -64,18 +75,36 @@ html, body {
         }
 
         nav a {
+            font-weight: bold;
             margin: 0 15px;
             color: white;
             text-decoration: none;
             font-size: 14px;
+            position: relative;
+        }
+
+        nav a:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: #5107B8;
         }
 
         nav a.cta-button {
-            background-color: #7e00ff;
-            color: white;
+            background-color: #5107B8;
+            color: white !important;
             padding: 10px 20px;
             border-radius: 5px;
             font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header.scrolled nav a.cta-button {
+            color: white !important;
+            /* Ensures text stays white */
         }
 
         .hero-section {
@@ -85,34 +114,19 @@ html, body {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            align-items: center;
             padding: 20px;
             padding-bottom: 60px;
         }
 
         .hero-section h1 {
+            text-shadow: 2px 2px 4px rgb(0, 0, 0);
+            /* X-offset, Y-offset, blur-radius, color */
+
+            text-align: left;
             color: white;
             font-size: 36px;
             font-weight: 600;
             margin-bottom: 20px;
-        }
-
-        .hero-section p {
-            color: white;
-            margin-top: 10px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .demo-button {
-            background-color: #7e00ff;
-            color: white;
-            padding: 15px 40px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
         }
 
         .hero-background img {
@@ -125,60 +139,21 @@ html, body {
             z-index: -1;
         }
 
-        .capabilities-section {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: black;
-        }
-
-        .capabilities-section h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
-        }
-
-        .capabilities-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .capability-card {
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 300px;
-        }
-
-        .capability-card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .capability-card p {
-            font-size: 14px;
-            opacity: 0.8;
-        }
         @media (max-width: 768px) {
-    header {
-        padding: 10px 20px; /* Reduce padding for smaller screens */
-    }
+            header {
+                padding: 10px 20px;
+            }
 
-    header.scrolled {
-        padding: 5px 20px; /* Further reduce padding when scrolled */
-    }
-}
+            .menu-icon {
+                display: block;
 
-        @media (max-width: 768px) {
-            header nav a {
-        color: black !important; /* Ensure black text in mobile view */
-    }
+            }
+
             #nav-menu {
                 position: fixed;
                 top: 0;
                 right: 0;
-                background-color: rgb(255, 255, 255);
+                background-color: white;
                 height: 100%;
                 width: 250px;
                 transform: translateX(100%);
@@ -188,34 +163,178 @@ html, body {
                 align-items: flex-start;
                 padding: 20px;
             }
-            #nav a {
-            margin: 0 15px;
-            line-height: 5rem;
-            color: black !important; /* Ensure it overrides other styles */
-            text-decoration: none;
-            font-size: 14px;
-        }
+
+            #nav-menu a {
+                color: black;
+                margin-bottom: 20px;
+            }
+
             #nav-menu.open {
                 transform: translateX(0);
             }
 
-            .menu-icon {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-
-            /* Close button inside the nav menu */
             .close-menu {
                 font-size: 30px;
-                color: rgb(3, 3, 3);
+                color: black;
                 cursor: pointer;
                 position: absolute;
                 top: 20px;
                 right: 20px;
             }
         }
+
+        @media (min-width: 769px) {
+            .close-menu {
+                display: none;
+            }
+        }
+
+        /* Hide home icon on mobile, show text */
+        @media (max-width: 768px) {
+            .desktop-home {
+                display: none;
+            }
+        }
+
+        /* Hide home text on desktop, show icon */
+        @media (min-width: 769px) {
+            .mobile-home {
+                display: none;
+            }
+        }
+
+
+
+
+        .hero-section {
+            text-align: center;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            /* align-items: center; */
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        .hero-section h1 {
+            text-align: center;
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 57.6px;
+
+        }
+
+        .hero-section p {
+            text-shadow: 2px 2px 4px rgb(0, 0, 0);
+            /* X-offset, Y-offset, blur-radius, color */
+            line-height: 24px;
+            padding: 0 15%;
+            font-weight: 400;
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 32px;
+                line-height: 40px;
+            }
+
+            .hero-section p {
+                font-size: 16px;
+                line-height: 22px;
+                padding: 0 10%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 28px;
+                line-height: 36px;
+            }
+
+            .hero-section p {
+                font-size: 14px;
+                line-height: 20px;
+                padding: 0 8%;
+            }
+        }
+
+        .demo-button {
+    background-color: #7e00ff;
+    letter-spacing: 0.1em; /* Adjusted for better spacing */
+    color: white;
+    padding: 24px 36px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 100%; /* Full width within container */
+    max-width: 436px; /* Restricts max width */
+    height: auto; /* Allows flexibility */
+    min-height: 60px; /* Ensures proper button height */
+    text-align: center;
+    line-height: 1.5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.demo-button span {
+    margin-left: 8px;
+    display: inline-block;
+}
+
+/* Hover Effect */
+.demo-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(126, 0, 255, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .demo-button {
+        max-width: 90%;
+        min-height: 55px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .demo-button {
+        max-width: 80%;
+        min-height: 50px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .demo-button {
+        max-width: 90%;
+        padding: 16px 24px;
+        font-size: 14px;
+    }
+}
+
+
+
+        .hero-background img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
 
         /* === SECTION LAYOUT (DESKTOP) === */
         .section {
@@ -257,19 +376,23 @@ html, body {
         }
 
         .text-box h2 {
-            font-weight: 500;
-            font-family: "Bower", Georgia, "Times New Roman", serif;
-            font-size: 3.25rem;
+
+            font-weight: 900;
+            /* font-family: "Bower", Georgia, "Times New Roman", serif; */
+            font-size: 1.25rem;
             margin-bottom: 10px;
-            line-height: 4rem;
+
         }
 
         .text-box h3 {
             text-align: justify;
-            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
-            font-weight: 520;
-            font-size: 1.75rem;
-            color: #555;
+            /* font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif; */
+            font-weight: 600;
+            font-size: 20px;
+            color: #757575;
+            line-height: 24px;
+            letter-spacing: -0.02em;
+            /* -2% in CSS */
             margin-bottom: 15px;
         }
 
@@ -281,23 +404,26 @@ html, body {
         .text-box ul li {
             font-size: 1.2rem;
             line-height: 1.8rem;
-            color: #555;
+            color: #000000;
         }
 
         .text-box p {
             text-align: justify;
-            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
             font-size: 1.25rem;
-            line-height: 2rem;
-            color: #555;
+            line-height: 19.6px;
+            color: #1E1E1E;
+            font-weight: 400;
         }
 
         .text-box a {
-            color: #0047AB;
+            color: #000000;
+            font-size: 14px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 900;
             display: inline-flex;
             align-items: center;
+            line-height: 16.8px;
+            letter-spacing: 20%;
             transition: color 0.3s ease-in-out;
         }
 
@@ -466,72 +592,69 @@ html, body {
         }
 
         .testimonials {
-            display: flex;
-            justify-content: center;
-            gap: 100px;
-            flex-wrap: nowrap;
-        }
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Adjust spacing */
+    flex-wrap: nowrap;
+}
 
-        .testimonial-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 20%;
-            min-height: 300px;
-            text-align: left;
-        }
+.testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 512px;
+    text-align: left;
+    flex-shrink: 0; /* Prevents shrinking */
+}
 
-        .testimonial-text {
-            margin-top: 90px;
-            text-align: justify;
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 90px;
-        }
+.testimonial-text {
+    margin-top: 90px;
+    text-align: justify;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 90px;
+}
 
-        .divider {
-            border-top: 1px dashed #ccc;
-            margin-bottom: 20px;
-        }
+.divider {
+    border-top: 1px dashed #ccc;
+    margin-bottom: 20px;
+}
 
-        .testimonial-name {
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
-            margin-top: 20px;
-        }
+.testimonial-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+}
 
-        .testimonial-role {
-            text-align: center;
-            font-size: 14px;
-            color: gray;
-            margin-top: 10px;
-        }
+.testimonial-role {
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
+}
 
-        @media (max-width: 1024px) {
-            .testimonials {
-                flex-wrap: wrap;
-            }
+@media (max-width: 1440px) {
+    .testimonials {
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        justify-content: center;
+    }
+}
 
-            .testimonial-card {
-                width: 45%;
-            }
-        }
+@media (max-width: 1024px) {
+    .testimonials {
+        flex-direction: column;
+        align-items: center;
+    }
 
-        @media (max-width: 768px) {
-            .testimonials {
-                flex-direction: column;
-                align-items: center;
-            }
+    .testimonial-card {
+        width: 90%;
+        max-width: 600px;
+    }
+}
 
-            .testimonial-card {
-                width: 90%;
-                max-width: 600px;
-                margin: 10px auto;
-                padding: 20px;
-            }
-        }
 
         .containervideo {
             display: flex;
@@ -540,7 +663,7 @@ html, body {
             width: 90%;
             margin: 50px auto;
             padding: 5%;
-            background: white;
+
             border-radius: 10px;
         }
 
@@ -585,17 +708,19 @@ html, body {
         }
 
         .text-container h2 {
-            text-align: justify;
-            font-size: 24px;
-            font-weight: 500;
+            color: #303030;
+            text-align: left;
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 38.4px;
             margin-bottom: 2%;
         }
 
         .text-container p {
-            line-height: 1.5rem;
+            line-height: 22.4px;
             text-align: justify;
             font-size: 16px;
-            color: #555;
+            color: #757575;
         }
 
         @media (max-width: 768px) {
@@ -618,61 +743,84 @@ html, body {
         .container {
             width: 100%;
             margin: auto;
-
-
         }
 
-        h2 {
-
-            font-size: 28px;
-            font-weight: bold;
+        /* Heading Styling */
+        .container  h2 {
+            font-size: 38.4px;
+            font-weight: 900;
             margin-bottom: 40px;
+            text-align: left;
+            padding-left: 5%;
+            line-height: 1.2;
         }
 
+        /* Offerings Section */
         .offerings {
-
             display: flex;
             justify-content: space-between;
         }
 
+        /* Offer Card */
         .offer-card {
             position: relative;
             width: 25%;
-
-
             overflow: hidden;
-
         }
 
+        /* Card Image */
         .offer-card img {
             width: 100%;
             display: block;
         }
 
+        /* Gradient Overlay */
+        .offer-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            /* Adjust gradient height */
+            background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            z-index: 1;
+        }
+
+        /* Offer Text */
         .offer-text {
-            position: absolute;
-            bottom: 60px;
-            left: 20px;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            max-width: 80%;
+            text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    position: absolute;
+    bottom: 80px; /* Increased from 60px */
+    left: 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    max-width: 80%;
+    line-height: 28.8px;
+    letter-spacing: -0.02em;
+    z-index: 2; /* Ensures text is above the gradient */
         }
 
-        .arrow {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            font-size: 40px;
-            padding: 5px 10px;
-            transition: transform 0.3s ease-in-out;
+        /* Arrow */
+        .arrow11 {
+            text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 50px; /* Increased arrow size */
+    padding: 5px 10px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 2; /* Ensures arrow is above the gradient */
         }
 
-        .offer-card:hover .arrow {
+        /* Hover Effect */
+        .offer-card:hover .arrow11 {
             transform: translateX(5px);
         }
 
+        /* Responsive Styling */
         @media (max-width: 1024px) {
             .offerings {
                 flex-wrap: wrap;
@@ -681,6 +829,11 @@ html, body {
 
             .offer-card {
                 width: 48%;
+            }
+
+            .container   h2 {
+               
+                font-size: 32px;
             }
         }
 
@@ -693,7 +846,15 @@ html, body {
             .offer-card {
                 width: 100%;
             }
+
+            h2 {
+                font-size: 28px;
+                text-align: center;
+                padding-left: 0;
+            }
         }
+
+
         .footer {
             padding: 0 5%;
             padding-top: 4%;
@@ -801,6 +962,7 @@ html, body {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            align-items: center;
             gap: 20px;
         }
 
@@ -826,20 +988,64 @@ html, body {
             flex-wrap: wrap;
         }
 
-        .location-row {
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .certified-trusted {
+                flex-wrap: nowrap;
+                /* Keep items in one row */
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                overflow-x: auto;
+                /* Prevent breaking layout */
+                padding: 10px;
+            }
 
-            padding-top: 7%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 10px;
-            position: relative;
+            .certified,
+            .trusted {
+                flex: 1;
+                padding-top: 10%;
+                align-items: center;
+                text-align: center;
+                min-width: 150px;
+                /* Prevent squishing */
+            }
+
+            .trusted-images {
+                justify-content: center;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                /* Allow scrolling if needed */
+            }
         }
 
+        .vertical-line {
+            min-height: 80px;
+            /* Ensures the line is visible */
+            width: 2px;
+            background: #ccc;
+            display: inline-block;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            /* Adjust spacing */
+            padding-top: 7%;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
+
+
         .location {
-         
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: relative;
+            padding: 10px;
         }
 
         .location img {
@@ -847,45 +1053,59 @@ html, body {
             height: 50px;
             border-radius: 50%;
             background-color: #0000001A;
-            /* Blue background */
             padding: 8px;
-            /* Creates the rounded gap effect */
             margin-bottom: 10px;
-            /* Adds space below the image */
-        }
-
-
-        .vertical-line {
-            position: absolute;
-            top: 0;
-            left: 100%;
-            /* Position the line to the right side of the image */
-            height: 100%;
-            border-left: 2px dashed #ccc;
-            z-index: -1;
-            margin-left: 10px;
-            /* This creates space (simulated padding) between the vertical line and the element */
-        }
-
-
-        .location:not(:last-child) .vertical-line {
-            display: block;
-            /* Only display the vertical line for non-last elements */
-        }
-
-        .location:last-child .vertical-line {
-            display: none;
-            /* Hide the vertical line for the last location */
         }
 
 
 
-        .copyright {
-            text-align: center;
-            padding: 15px;
+
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
             font-size: 14px;
             color: #666;
+            background-color: #f8f8f8;
         }
+
+        .footer-links-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows links to wrap if needed */
+            gap: 10px;
+        }
+
+        .footer-links-bottom a {
+            text-decoration: none;
+            color: #666;
+            margin: 0 10px;
+            white-space: nowrap;
+            /* Prevents links from breaking into two lines */
+        }
+
+        .footer-links-bottom a:hover {
+            color: #000;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                /* Stack items on smaller screens */
+                text-align: center;
+                gap: 10px;
+            }
+
+            .footer-links-bottom {
+                justify-content: center;
+            }
+        }
+
 
         @media (max-width: 768px) {
             .footer-container {
@@ -905,6 +1125,7 @@ html, body {
 
             .trusted {
                 align-items: flex-start;
+
             }
         }
     </style>
@@ -913,19 +1134,23 @@ html, body {
 <body>
     <header id="header">
         <div class="logo">
-            <a href="#"><img id="logo" src="hel.png" alt="Gritbyte Labs Logo" height="40"></a>
+            <a href="Index.html"><img id="logo" src="hel.png" alt="Gritbyte Labs Logo" height="40"></a>
         </div>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <nav id="nav-menu">
-            <div class="close-menu" onclick="toggleMenu()">×</div> <!-- Close button -->
-            <a href="#">Products</a>
-            <a href="#">Solutions</a>
+            <div class="close-menu" onclick="toggleMenu()">×</div>
+            <a href="index.html" class="desktop-home"><i class="fas fa-home"></i></a>
+            <a href="index.html" class="mobile-home">Home</a>
+
+
+            <a href="Product.html">Products</a>
+            <a href="Solutions.html">Solutions</a>
             <a href="#">Case Studies</a>
             <a href="#">Testimonials</a>
             <a href="#">Blog</a>
             <a href="#">Career</a>
-            <a href="#">Contact Us</a>
-            <a href="#" class="cta-button">GET IN TOUCH</a>
+            <a href="contact3.html">Contact Us</a>
+            <a href="contact3.html" class="cta-button">GET IN TOUCH</a>
         </nav>
     </header>
 
@@ -933,13 +1158,15 @@ html, body {
         <div class="hero-background">
             <img src="hero.png" alt="Hero Background">
         </div>
-        <h1>Empowering Businesses with Cutting-Edge AI, XR, and Digital Transformation</h1>
+        <h1>Empowering Businesses with Cutting-<br>Edge AI, XR, and Digital Transformation</h1>
         <p>260+ successful projects. 20+ countries. Trusted by global innovators. Unlock the future with AI-driven,
             XR-powered, and scalable tech solutions.</p>
-        <button class="demo-button">GET A DEMO <span>&rarr;</span></button>
+        <button class="demo-button" onclick="window.location.href='contact3.html'">
+            GET A DEMO <span>&rarr;</span>
+        </button>
     </section>
 
-    
+
 
     <section class="trending">
         <div class="trending-list">
@@ -1215,27 +1442,27 @@ html, body {
         </div>
     </div>
     <div class="container">
-        <h2>What We Offer</h2>
+        <h2 style="padding-left: 5%;">What We Offer</h2>
         <div class="offerings">
             <div class="offer-card">
                 <img src="offer1.png" alt="XR Solutions">
                 <div class="offer-text">Custom XR Solutions: Immersive & Interactive</div>
-                <div class="arrow">&rarr;</div>
+                <div class="arrow11">&rarr;</div>
             </div>
             <div class="offer-card">
                 <img src="offer2.png" alt="AI Tools">
                 <div class="offer-text">AI-Powered Tools: Intelligent, Scalable, Game-Changing</div>
-                <div class="arrow">&rarr;</div>
+                <div class="arrow11">&rarr;</div>
             </div>
             <div class="offer-card">
                 <img src="offer3.png" alt="Team Management">
                 <div class="offer-text">Offshore Team Management: Scalable & Cost-Efficient</div>
-                <div class="arrow">&rarr;</div>
+                <div class="arrow11">&rarr;</div>
             </div>
             <div class="offer-card">
                 <img src="offer4.png" alt="3D Design">
                 <div class="offer-text">3D Design & Visualization: Stunning, High-Fidelity Content</div>
-                <div class="arrow">&rarr;</div>
+                <div class="arrow11">&rarr;</div>
             </div>
         </div>
     </div>
@@ -1247,7 +1474,7 @@ html, body {
                     <p>At Gritbyte Labs, we specialize in XR, AI, and scalable technology solutions that empower
                         businesses worldwide. With 260+ successful projects across 20+ countries, we’re your trusted
                         partner for innovation.</p>
-                    <a href="#">➡</a>
+                    <a href="#" class="arrow">&#10145;</a>
                 </div>
                 <div class="certified-trusted">
                     <div class="certified">
@@ -1267,19 +1494,20 @@ html, body {
             </div>
             <div class="footer-column">
                 <div class="footer-links">
-                    <a href="#">Home</a>
+                    <a href="Index.html">Home</a>
                     <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Case Studies</a>
+                    <a href="Product.html">Services</a>
+                    <a href="Solutions.html">Solutions</a>
                     <a href="#">Career</a>
-                    <a href="#">Contact Us</a>
+                    <a href="contact3.html">Contact Us</a>
                 </div>
             </div>
             <div class="footer-column">
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
                 <hr>
@@ -1290,85 +1518,70 @@ html, body {
                 <hr>
                 <div class="location-row">
                     <div class="location">
-                        <img src="/India (IN).png" alt="Location">
+                        <img src="India (IN).png" alt="Location">
                         <p>Bangalore<br>Mysuru</p>
-                        <div class="vertical-line"></div>
                     </div>
+                    <div class="vertical-line"></div> <!-- Line between columns -->
+
                     <div class="location">
                         <img src="South Korea (KR).png" alt="Location">
                         <p>Seoul</p>
-                        <div class="vertical-line"></div>
                     </div>
+                    <div class="vertical-line"></div>
+
                     <div class="location">
                         <img src="United Kingdom (GB).png" alt="Location">
                         <p>London</p>
-                        <div class="vertical-line"></div>
                     </div>
+                    <div class="vertical-line"></div>
+
                     <div class="location">
                         <img src="Canada (CA).png" alt="Location">
                         <p>Toronto</p>
-                        <div class="vertical-line"></div>
                     </div>
+                    <div class="vertical-line"></div>
+
                     <div class="location">
-                        <img src="United Arab Emirates (AE) (1).png" alt="Location">
+                        <img src="United Arab Emirates (AE).png" alt="Location">
                         <p>Downtown <br>Dubai</p>
                     </div>
                 </div>
+
+
 
             </div>
         </div>
         <hr>
     </footer>
-    <div class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</div>
+    <div class="footer-bottom">
+        <p style="font-weight: bold;color: #000;" class="copyright">&copy; 2025 Gritbyte Labs. All Rights Reserved.</p>
+        <div class="footer-links-bottom">
+            <a href="termsofuse.html">Terms & Conditions </a> |
+            <a href="faq.html">FAQs </a> |
+            <a href="privacypolicy.html">Privacy Policy </a>
+        </div>
+    </div>
+
     <script>
-        function openMenu() {
-            document.getElementById("mobileMenu").style.right = "0";
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("open");
         }
 
-        function closeMenu() {
-            document.getElementById("mobileMenu").style.right = "-100%";
-        }
-
-        function toggleDropdown(el) {
-            el.classList.toggle("active");
-        }
-    </script>
-    <script>
-        function openMenu() {
-            document.getElementById("mobileMenu").style.right = "0";
-        }
-
-        function closeMenu() {
-            document.getElementById("mobileMenu").style.right = "-250px";
-        }
-    </script>
-    <script>
         const header = document.getElementById('header');
-        const navMenu = document.getElementById('nav-menu');
-        const menuIcon = document.querySelector('.menu-icon');
         const logoImage = document.getElementById('logo');
+        const ctaButton = document.querySelector('.cta-button'); // Select the button
         const originalLogoSrc = 'hel.png';
         const scrolledLogoSrc = 'Gritbyte Logo 1 (1).png';
 
-        function toggleMenu() {
-            navMenu.classList.toggle('open');
-        }
-
-        // Change logo and background color when scrolling
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
                 logoImage.src = scrolledLogoSrc;
+                ctaButton.style.color = 'white'; // Keep text color white
             } else {
                 header.classList.remove('scrolled');
                 logoImage.src = originalLogoSrc;
-            }
-        });
-
-        // Close the menu if clicked outside
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !menuIcon.contains(e.target)) {
-                navMenu.classList.remove('open');
+                ctaButton.style.color = 'white'; // Ensure text remains white
             }
         });
     </script>
